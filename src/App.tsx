@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react'
 import Building3D from './components/Building3D'
 
-const H_MIN = 9
+const H_MIN = 8
 const H_MAX = 150
 const W_MIN = 10
 const W_MAX = 60
@@ -41,54 +41,59 @@ export default function App() {
   }
 
   return (
-    <div className="page">
-      <header className="nav">
-        <a className="brand" href="#top">
+    <div className='page'>
+      <header className='nav'>
+        <a className='brand' href='#top'>
           מגדל <span>מיכל</span>
         </a>
-        <nav className="nav-links">
-          <a href="#specs">מפרט ומידות</a>
-          <a href="#apartments">דירות</a>
-          <a href="#contact">צור קשר</a>
+        <nav className='nav-links'>
+          <a href='#specs'>מפרט ומידות</a>
+          <a href='#apartments'>דירות</a>
+          <a href='#contact'>צור קשר</a>
         </nav>
-        <a className="btn btn-gold btn-small" href="#contact">
+        <a className='btn btn-gold btn-small' href='#contact'>
           תיאום פגישה
         </a>
       </header>
 
-      <section className="hero" id="top">
-        <Building3D height={clamp(height, H_MIN, H_MAX)} width={clamp(width, W_MIN, W_MAX)} />
+      <section className='hero' id='top'>
+        <Building3D
+          height={clamp(height, H_MIN, H_MAX)}
+          width={clamp(width, W_MIN, W_MAX)}
+        />
 
-        <div className="hero-overlay">
-          <div className="hero-copy">
-            <p className="kicker">פרויקט מגורים יוקרתי | הרשמה מוקדמת</p>
+        <div className='hero-overlay'>
+          <div className='hero-copy'>
+            <p className='kicker'>פרויקט מגורים יוקרתי | הרשמה מוקדמת</p>
             <h1>
               מגדל <em>מיכל</em>
             </h1>
-            <p className="hero-sub">
-              {floors} קומות של שלמות אדריכלית מעל פארק עירוני. חזית זכוכית, מרפסות שמש ולובי
-              בגובה כפול — הכול בהדמיה תלת־ממדית חיה מולכם.
+            <p className='hero-sub'>
+              {floors} קומות של שלמות אדריכלית מעל פארק עירוני. חזית זכוכית,
+              מרפסות שמש ולובי בגובה כפול — הכול בהדמיה תלת־ממדית חיה מולכם.
             </p>
-            <div className="hero-actions">
-              <a className="btn btn-gold" href="#apartments">
+            <div className='hero-actions'>
+              <a className='btn btn-gold' href='#apartments'>
                 לצפייה בדירות
               </a>
-              <a className="btn btn-ghost" href="#specs">
+              <a className='btn btn-ghost' href='#specs'>
                 מפרט ומידות
               </a>
             </div>
-            <p className="drag-hint">🖱️ גררו לסיבוב הבניין · Ctrl + גלגלת (או צביטה) להתקרבות</p>
+            <p className='drag-hint'>
+              🖱️ גררו לסיבוב הבניין · Ctrl + גלגלת (או צביטה) להתקרבות
+            </p>
           </div>
 
-          <aside className="config-panel">
+          <aside className='config-panel'>
             <h2>מידות הפרויקט</h2>
-            <p className="panel-sub">שנו את המידות — ההדמיה מתעדכנת בזמן אמת</p>
-            <div className="field">
-              <label htmlFor="height-input">גובה הבניין (מטרים)</label>
-              <div className="field-row">
+            <p className='panel-sub'>שנו את המידות — ההדמיה מתעדכנת בזמן אמת</p>
+            <div className='field'>
+              <label htmlFor='height-input'>גובה הבניין (מטרים)</label>
+              <div className='field-row'>
                 <input
-                  id="height-input"
-                  type="range"
+                  id='height-input'
+                  type='range'
                   min={H_MIN}
                   max={H_MAX}
                   step={1}
@@ -96,23 +101,23 @@ export default function App() {
                   onChange={handleHeightChange}
                 />
                 <input
-                  type="number"
+                  type='number'
                   min={H_MIN}
                   max={H_MAX}
                   step={1}
                   value={height}
                   onChange={handleHeightChange}
                   onBlur={() => setHeight(clamp(height, H_MIN, H_MAX))}
-                  aria-label="גובה הבניין במטרים"
+                  aria-label='גובה הבניין במטרים'
                 />
               </div>
             </div>
-            <div className="field">
-              <label htmlFor="width-input">רוחב חזית (מטרים)</label>
-              <div className="field-row">
+            <div className='field'>
+              <label htmlFor='width-input'>רוחב חזית (מטרים)</label>
+              <div className='field-row'>
                 <input
-                  id="width-input"
-                  type="range"
+                  id='width-input'
+                  type='range'
                   min={W_MIN}
                   max={W_MAX}
                   step={1}
@@ -120,18 +125,18 @@ export default function App() {
                   onChange={handleWidthChange}
                 />
                 <input
-                  type="number"
+                  type='number'
                   min={W_MIN}
                   max={W_MAX}
                   step={1}
                   value={width}
                   onChange={handleWidthChange}
                   onBlur={() => setWidth(clamp(width, W_MIN, W_MAX))}
-                  aria-label="רוחב הבניין במטרים"
+                  aria-label='רוחב הבניין במטרים'
                 />
               </div>
             </div>
-            <dl className="panel-stats">
+            <dl className='panel-stats'>
               <div>
                 <dt>קומות</dt>
                 <dd>{floors}</dd>
@@ -149,64 +154,71 @@ export default function App() {
         </div>
       </section>
 
-      <section className="stats-strip">
-        <div className="stat">
+      <section className='stats-strip'>
+        <div className='stat'>
           <strong>{floors}</strong>
           <span>קומות</span>
         </div>
-        <div className="stat">
+        <div className='stat'>
           <strong>{totalApts}</strong>
           <span>דירות בפרויקט</span>
         </div>
-        <div className="stat">
+        <div className='stat'>
           <strong>{height} מ׳</strong>
           <span>גובה המגדל</span>
         </div>
-        <div className="stat">
+        <div className='stat'>
           <strong>2028</strong>
           <span>אכלוס משוער</span>
         </div>
       </section>
 
-      <section className="section" id="specs">
-        <p className="kicker center">מפרט טכני</p>
-        <h2 className="section-title">בנוי סביב איכות החיים שלכם</h2>
-        <div className="cards">
-          <article className="card">
-            <div className="card-icon">🏛️</div>
+      <section className='section' id='specs'>
+        <p className='kicker center'>מפרט טכני</p>
+        <h2 className='section-title'>בנוי סביב איכות החיים שלכם</h2>
+        <div className='cards'>
+          <article className='card'>
+            <div className='card-icon'>🏛️</div>
             <h3>לובי כפול מפואר</h3>
-            <p>לובי כניסה בגובה כפול בעיצוב אדריכלי, עמדת קבלה ופינות ישיבה מרוהטות.</p>
+            <p>
+              לובי כניסה בגובה כפול בעיצוב אדריכלי, עמדת קבלה ופינות ישיבה
+              מרוהטות.
+            </p>
           </article>
-          <article className="card">
-            <div className="card-icon">🛗</div>
+          <article className='card'>
+            <div className='card-icon'>🛗</div>
             <h3>מעליות מהירות</h3>
-            <p>שתי מעליות שבדיות מהירות עם בקרת יעדים חכמה וירידה ישירה לחניון.</p>
+            <p>
+              שתי מעליות שבדיות מהירות עם בקרת יעדים חכמה וירידה ישירה לחניון.
+            </p>
           </article>
-          <article className="card">
-            <div className="card-icon">🚗</div>
+          <article className='card'>
+            <div className='card-icon'>🚗</div>
             <h3>חניון תת־קרקעי</h3>
             <p>שתי קומות חניה, עמדות טעינה לרכב חשמלי ומחסן צמוד לכל דירה.</p>
           </article>
-          <article className="card">
-            <div className="card-icon">💪</div>
+          <article className='card'>
+            <div className='card-icon'>💪</div>
             <h3>מועדון דיירים</h3>
-            <p>חדר כושר מאובזר, לאונג׳ עבודה משותף וחדר אירועים לרשות הדיירים.</p>
+            <p>
+              חדר כושר מאובזר, לאונג׳ עבודה משותף וחדר אירועים לרשות הדיירים.
+            </p>
           </article>
-          <article className="card">
-            <div className="card-icon">🌅</div>
+          <article className='card'>
+            <div className='card-icon'>🌅</div>
             <h3>מרפסות שמש</h3>
             <p>מרפסות מרווחות בכל דירה עם נוף פתוח לפארק ולקו הרקיע העירוני.</p>
           </article>
-          <article className="card">
-            <div className="card-icon">🛡️</div>
+          <article className='card'>
+            <div className='card-icon'>🛡️</div>
             <h3>ממ״ד ובטיחות</h3>
             <p>ממ״ד בכל דירה, מערכות כיבוי מתקדמות ובקרת כניסה חכמה 24/7.</p>
           </article>
         </div>
 
-        <div className="dims-table-wrap">
-          <h3 className="table-title">מידות הפרויקט</h3>
-          <table className="data-table">
+        <div className='dims-table-wrap'>
+          <h3 className='table-title'>מידות הפרויקט</h3>
+          <table className='data-table'>
             <tbody>
               <tr>
                 <th>גובה כולל</th>
@@ -237,11 +249,11 @@ export default function App() {
         </div>
       </section>
 
-      <section className="section section-alt" id="apartments">
-        <p className="kicker center">תמהיל הדירות</p>
-        <h2 className="section-title">דירה לכל שלב בחיים</h2>
-        <div className="table-scroll">
-          <table className="data-table apartments-table">
+      <section className='section section-alt' id='apartments'>
+        <p className='kicker center'>תמהיל הדירות</p>
+        <h2 className='section-title'>דירה לכל שלב בחיים</h2>
+        <div className='table-scroll'>
+          <table className='data-table apartments-table'>
             <thead>
               <tr>
                 <th>סוג דירה</th>
@@ -282,7 +294,7 @@ export default function App() {
                   {lowTop + 1}–{Math.max(lowTop + 1, floors - 1)}
                 </td>
               </tr>
-              <tr className="row-highlight">
+              <tr className='row-highlight'>
                 <td>פנטהאוז</td>
                 <td>6</td>
                 <td>190 מ״ר</td>
@@ -292,34 +304,40 @@ export default function App() {
             </tbody>
           </table>
         </div>
-        <p className="table-note">* התמהיל מתעדכן אוטומטית לפי מידות הבניין שבחרתם בהדמיה</p>
+        <p className='table-note'>
+          * התמהיל מתעדכן אוטומטית לפי מידות הבניין שבחרתם בהדמיה
+        </p>
       </section>
 
-      <section className="section" id="contact">
-        <p className="kicker center">מעוניינים לשמוע עוד?</p>
-        <h2 className="section-title">השאירו פרטים ונחזור אליכם</h2>
+      <section className='section' id='contact'>
+        <p className='kicker center'>מעוניינים לשמוע עוד?</p>
+        <h2 className='section-title'>השאירו פרטים ונחזור אליכם</h2>
         {sent ? (
-          <div className="sent-box">
-            <div className="sent-icon">✓</div>
+          <div className='sent-box'>
+            <div className='sent-icon'>✓</div>
             <h3>תודה! הפרטים התקבלו</h3>
             <p>נציג מטעם הפרויקט יחזור אליכם בתוך יום עסקים אחד.</p>
           </div>
         ) : (
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-row">
-              <input type="text" name="name" placeholder="שם מלא" required />
-              <input type="tel" name="phone" placeholder="טלפון" required />
+          <form className='contact-form' onSubmit={handleSubmit}>
+            <div className='form-row'>
+              <input type='text' name='name' placeholder='שם מלא' required />
+              <input type='tel' name='phone' placeholder='טלפון' required />
             </div>
-            <input type="email" name="email" placeholder="אימייל" required />
-            <textarea name="message" rows={4} placeholder="איזו דירה מעניינת אתכם?" />
-            <button className="btn btn-gold btn-wide" type="submit">
+            <input type='email' name='email' placeholder='אימייל' required />
+            <textarea
+              name='message'
+              rows={4}
+              placeholder='איזו דירה מעניינת אתכם?'
+            />
+            <button className='btn btn-gold btn-wide' type='submit'>
               שלחו לי פרטים על הפרויקט
             </button>
           </form>
         )}
       </section>
 
-      <footer className="footer">
+      <footer className='footer'>
         <p>
           מגדל מיכל © {new Date().getFullYear()} · ההדמיות להמחשה בלבד · ט.ל.ח
         </p>
